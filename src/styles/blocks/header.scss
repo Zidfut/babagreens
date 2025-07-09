@@ -1,11 +1,232 @@
-@use 'sass:math';
+@use "sass:math";
+@use "../config" as *;
 
-@use '../config' as *;
+.header {
+  position: relative;
 
-.header-img {
-  border-radius: $radius;
-  @include media-breakpoint-down(sm) {
-    height: 32vh;
-    object-fit: cover;
+  .container {
+    --container-padding-x: 52px;
+
+    @include media-breakpoint-down(lg) {
+      --container-padding-x: 36px;
+    }
+  }
+
+  &__banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffe38c;
+    padding: 21px 16px 15px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 22px;
+    text-align: center;
+    color: #000;
+  }
+
+  &__menu {
+    height: 106px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-logo {
+      display: block;
+      width: fluid(334, 217);
+      flex-shrink: 0;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &__nav {
+    margin-left: auto;
+
+    @include media-breakpoint-down(lg) {
+      visibility: hidden;
+      width: 100%;
+      height: 100dvh;
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 142px 42px 20px;
+      transform: translateX(-100%);
+      transition: 0.3s ease;
+    }
+
+    &.active {
+      display: block;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      column-gap: 70px;
+      padding: 0;
+      margin: 0;
+
+      @include media-breakpoint-down(xl) {
+        column-gap: 30px;
+      }
+
+      @include media-breakpoint-down(lg) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: 24px;
+      }
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 70px;
+        color: #000;
+      }
+    }
+
+    &-mobile {
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+
+    &-close {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      position: absolute;
+      top: 54px;
+      left: 40px;
+      cursor: pointer;
+
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+
+      span {
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+        border-radius: 3px;
+        transform-origin: center;
+
+        &:first-child {
+          transform: translateY(2px) rotate(-45deg);
+        }
+        &:last-child {
+          transform: translateY(-1px) rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &__account-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 42px;
+
+    a {
+      display: inline-block;
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 40px;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+
+  &__search {
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+
+    &-input {
+      border: 2px solid #000;
+      border-radius: 999px;
+      padding: 16px 50px 16px 28px;
+      width: 354px;
+      height: 56px;
+      font-family: var(--second-family);
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 200%;
+      color: #000;
+    }
+
+    &-icon {
+      display: block;
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 29px;
+      line-height: 0;
+    }
+  }
+
+  &__buttons {
+    margin-left: 90px;
+    display: flex;
+    align-items: center;
+    column-gap: 26px;
+
+    @include media-breakpoint-down(xl) {
+      margin-left: 50px;
+    }
+
+    a {
+      display: inline-block;
+
+      @include media-breakpoint-down(lg) {
+        &.user-button {
+          display: none;
+        }
+      }
+    }
+
+    .button-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  &__mobile-button {
+    width: 34px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #000;
+      border-radius: 3px;
+    }
   }
 }

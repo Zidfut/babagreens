@@ -1,16 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..900&family=Bebas+Neue&family=REM:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="styles/main.scss">
   <script type="module" src="js/app.js"></script>
 
 </head>
+
 <body>
+  <header class="header">
+    <div class="header__banner">
+      <p>20% Off Your First Order with coupon MYBABAGREENS</p>
+    </div>
+    <div class="container">
+      <div class="header__menu">
+        <a href="/" class="header__menu-logo">
+          <img src="assets/img/logo.svg" alt="logo">
+        </a>
+        <div class="header__nav" data-header-nav>
+          <div class="header__nav-close" data-close-btn>
+            <span></span>
+            <span></span>
+          </div>
+          <nav class="nav">
+            <ul class="header__nav-list">
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Find your flavor</a></li>
+              <li><a href="#">Benefits</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+          <div class="header__nav-mobile">
+            <ul class="header__account-links">
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Create Account</a></li>
+            </ul>
+            <div class="header__search">
+              <input type="text" class="header__search-input" placeholder="Search">
+              <i class="header__search-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19 19L13.0001 13M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </i>
+            </div>
+          </div>
+        </div>
+        <div class="header__buttons">
+          <a href="#" class="header__button user-button">
+            <span class="button-icon">
+              <svg width="27" height="29" viewBox="0 0 27 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.5 18.6667C9.13782 18.6667 5.25858 20.7925 2.78884 24.0916C2.25729 24.8017 1.99151 25.1567 2.00021 25.6365C2.00692 26.0072 2.23755 26.4749 2.52653 26.7037C2.90057 27 3.4189 27 4.45556 27H22.5444C23.5811 27 24.0994 27 24.4735 26.7037C24.7624 26.4749 24.9931 26.0072 24.9998 25.6365C25.0085 25.1567 24.7427 24.8017 24.2112 24.0916C21.7414 20.7925 17.8622 18.6667 13.5 18.6667Z"
+                  stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M13.5 14.5C16.9199 14.5 19.6922 11.7018 19.6922 8.25C19.6922 4.79822 16.9199 2 13.5 2C10.0801 2 7.30779 4.79822 7.30779 8.25C7.30779 11.7018 10.0801 14.5 13.5 14.5Z"
+                  stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </a>
+          <a href="#" class="header__button">
+            <span class="button-icon">
+              <svg width="29" height="31" viewBox="0 0 29 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M19.957 11.45V7.4C19.957 4.41766 17.5138 2 14.5 2C11.4862 2 9.04296 4.41766 9.04296 7.4V11.45M3.02931 13.2752L2.21075 21.9152C1.97801 24.3717 1.86165 25.6 2.27357 26.5488C2.63544 27.3822 3.26958 28.0713 4.07435 28.5056C4.99046 29 6.23718 29 8.73061 29H20.2694C22.7628 29 24.0095 29 24.9256 28.5056C25.7304 28.0713 26.3646 27.3822 26.7264 26.5488C27.1384 25.6 27.022 24.3717 26.7892 21.9152L25.9707 13.2752C25.7742 11.2007 25.6759 10.1635 25.2044 9.37932C24.7892 8.68869 24.1758 8.1359 23.4422 7.79129C22.6091 7.4 21.5564 7.4 19.4508 7.4L9.54917 7.4C7.44363 7.4 6.39086 7.4 5.55785 7.79129C4.82421 8.1359 4.21076 8.68869 3.79556 9.37932C3.32411 10.1635 3.22584 11.2007 3.02931 13.2752Z"
+                  stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+            </span>
+          </a>
+          <div class="header__mobile-button" tabindex="1" data-mobile-btn>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
 </body>
+
 </html>

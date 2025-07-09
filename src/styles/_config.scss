@@ -1,14 +1,11 @@
 @use 'sass:map';
+@use 'sass:math';
 
 // USER VARIABLES SECTION
 
-$accent: #a54fc9; // Accent Color
-$gutter: 30px; // Global Gutter
-$radius: 8px; // Default Radius
 $fontsize: 16px; // Body Font Size
 $lineheight: 1.65; // Document Line Height
 $textcolor: #151515; // Text Color
-$userfont: roboto-x, sans-serif; // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
 
 // FONTS LOAD SECTION
@@ -58,18 +55,54 @@ $grid-breakpoints: (
 
 // Custom Mixin
 
+@function fluid($max: 100, $min: 10) {
+  $maxViewportWidth: 1440;
+  $minViewportWidth: 440;
 
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}
+
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
 
 // RESET STYLES SECTION
 
+:root {
+  --font-family: "Bebas Neue", sans-serif;
+  --second-family: "Albert Sans", sans-serif;
+  --third-family: "REM", sans-serif;
+
+  --container-width: 1322px;
+  --container-padding-x: 64px;
+}
+
 body {
-  font-family: $userfont;
+  font-family: var(--font-family);
   font-size: $fontsize;
   line-height: $lineheight;
   color: $textcolor;
   min-width: 320px;
   position: relative;
   overflow-x: hidden;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
 }
 
 *,
@@ -82,11 +115,6 @@ body {
 
 ::placeholder {
   color: #666;
-}
-
-::selection {
-  background-color: $accent;
-  color: #fff;
 }
 
 button, input, select, textarea {
